@@ -3,7 +3,7 @@ import HomePage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import {Switch, Route} from 'react-router-dom'
 import Header from './components/header/header.component'
-
+import SignInAndSignUp from './pages/sign-in-andsing-up/sign-in-and-sing-up.component'
 
 import './App.css'
 // const HatsPage = (props) =>{ 
@@ -35,6 +35,7 @@ function App() {
        <Switch>
          <Route exact path='/' component={HomePage} />
          <Route exact path='/shop' component={ShopPage} />
+         <Route exact path='/signin' component={SignInAndSignUp} />
          {/* <Route exact path='/hats' component={HatsPage} />
          <Route exact path='/blog/awds/topics' component={TopicList} />
          <Route exact path='/blog/awds/topics/:topicId' component={TopicDetailPage} /> */}
