@@ -23,7 +23,7 @@ export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
 // 
-export const createUserProfileDocument = async (user, displayName) => {
+export const createUserProfileDocument = async (user, additionalData) => {
     // If user object doesnot exist we are not
     if(!user) return
 
@@ -33,14 +33,15 @@ export const createUserProfileDocument = async (user, displayName) => {
 
     // If User Id does not exists
     if(!snapShot.exists){
-        const {email} = user
+        const {email, displayName} = user
         const createdAt = new Date()
 
         try{
             await userRef.set({
                 displayName,
                 email,
-                createdAt
+                createdAt,
+                ...additionalData
             })
         }
         catch(error){

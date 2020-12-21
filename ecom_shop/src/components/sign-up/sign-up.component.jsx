@@ -33,13 +33,8 @@ class SignUp extends React.Component{
             // waits for firebase to fill the information before sending it back to the code
             const {user} = await auth.createUserWithEmailAndPassword(email,password)
 
-
-            
-
-            console.log(user)
-
             // firestore
-            await createUserProfileDocument(user, displayName)
+            await createUserProfileDocument(user, {displayName})
         }catch(error){
             console.log(error)
             
