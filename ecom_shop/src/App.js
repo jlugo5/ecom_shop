@@ -8,6 +8,8 @@ import Contact from './pages/contact/contact.component'
 import React from 'react'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
+import {connect} from 'react-redux'
+
 // const HatsPage = (props) =>{ 
 //   return(
 //     <h1>This is Hats Page</h1>
@@ -31,13 +33,6 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 
 class App extends React.Component {
-  constructor(){
-    super()
-
-    this.state = {
-      currentUser: null
-    }
-  }
 
   componentDidMount(){
 
@@ -56,11 +51,7 @@ class App extends React.Component {
             }
           })
         })
-        console.log(this.state)
       }
-
-      this.setState({currentUser:user})
-      console.log(this.state)
     })
     
   }
@@ -85,4 +76,19 @@ class App extends React.Component {
   }
 }
 
-export default App;
+
+
+// connect will do some function the return will be send to App and App will used it as props
+// Note:
+// Connect is HOC - High Order Component
+// It take two parameters
+//    mapStateToProps => Subscribe the data from the store
+//    mapDispatchToProps => Dispatching Actions and Payload(Data) to the reducer
+//       => Takes object as a patameter with multiple actions can be dispatched
+//       => user => dispattch(serCurrentUser(user))    
+const mapDispatchToProps = dispatch => (
+  {
+    setCurrentUser: user => dispatch(setCurrentUser(user))
+  }
+)
+export default connect(null, mapDispatchToProps)(App);
