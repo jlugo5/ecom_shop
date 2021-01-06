@@ -1,5 +1,5 @@
-import SHOP_DATA from "../../pages/shop/shop.data";
-// TODO to FINISH....................................................*************
+import SHOP_DATA from "./shop.data";
+
 const INITIAL_STATE = {
     collections: SHOP_DATA
 }

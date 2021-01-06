@@ -33,7 +33,7 @@ const CheckOutPage = ({cartItems,totalPrice}) => {
         <div className='total'>
             <span>{totalPrice}</span>
         </div>
-        <div className='test-warning'>
+        <div className='text-warning'>
             *Pleas use the following test credit card for the payments*
             <br/>
             4242 4242 4242 - Exp: 11/21 -CVV: 123
