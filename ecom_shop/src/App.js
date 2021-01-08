@@ -15,6 +15,8 @@ import CheckOutPage from './pages/checkout/checkout.component'
 
 class App extends React.Component {
 
+unsubcribeFromAuth = null
+
   componentDidMount(){
     const {setCurrentUser} = this.props
 
